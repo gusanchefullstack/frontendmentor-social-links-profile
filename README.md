@@ -59,29 +59,78 @@ Use this section to recap over some of your major learnings while working throug
 To see how you can add code snippets, see below:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+ <body>
+    <main>
+      <social-link-profile></social-link-profile>
+    </main>
+    <template id="social-link-profile-template">
+      <div class="card">
+        <img
+          class="profile-pic"
+          src="./assets/images/avatar-jessica.jpeg"
+          alt="Profile Picture"
+        />
+        <div class="name-location-bio">
+          <h1 class="name">Jessica Randall</h1>
+          <p class="location">London, United Kingdom</p>
+          <p class="bio">"Front-end developer and avid reader."</p>
+        </div>
+        <div class="social-networks-links">
+          <div class="button">GitHub</div>
+          <div class="button">Frontend Mentor</div>
+          <div class="button">LinkedIn</div>
+          <div class="button">Twitter</div>
+          <div class="button">Instagram</div>
+        </div>
+      </div>
+    </template>
+  </body>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@media screen and (max-width: 376px) {
+  .card {
+    max-width: 327px;
+    max-height: 579px;
+    margin: 0 auto;
+    margin-top: 116.5px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .social-networks-links .button {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
 }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+export class SocialLinkProfile extends HTMLElement {
+  constructor() {
+    super();
+    const template = document.getElementById("social-link-profile-template");
+    const content = template.content.cloneNode(true);
+    const styles = document.createElement("style");
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+    this.root = this.attachShadow({ mode: "open" });
+    this.root.appendChild(content);
+    this.root.appendChild(styles);
+
+    async function loadCSS() {
+      const request = await fetch("/components/SocialLinkProfile.css");
+      const css = await request.text();
+      styles.textContent = css;
+    }
+
+    loadCSS();
+  }
+}
+
+customElements.define("social-link-profile", SocialLinkProfile);
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 ### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
