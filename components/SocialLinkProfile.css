@@ -1,0 +1,78 @@
+.card {
+  text-align: center;
+  border-radius: 12px;
+  background-color: var(--Grey-800);
+  max-width: 384px;
+  max-height: 611px;
+  margin: 0 auto;
+  margin-top: 174.5px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+  /* display: inline-block; */
+  margin-bottom: 4px;
+}
+
+.name-location-bio .name {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--White);
+  margin-bottom: 4px;
+}
+
+.name-location-bio .location {
+  color: var(--Green);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.name-location-bio .bio {
+  color: var(--White);
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.social-networks-links .button {
+  border-radius: 8px;
+  background-color: var(--Grey-700);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--White);
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 16px;
+  line-height: 150%;
+  padding: 12px;
+}
+
+.social-networks-links .button:hover {
+  cursor: pointer;
+  background-color: var(--Green);
+  color: var(--Grey-800);
+}
+
+.social-networks-links .button:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 376px) {
+  .card {
+    max-width: 327px;
+    max-height: 579px;
+    margin: 0 auto;
+    margin-top: 116.5px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .social-networks-links .button {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
